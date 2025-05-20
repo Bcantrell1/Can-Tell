@@ -13,17 +13,15 @@ var (
 		{email: "help@microsoft.com", correct: true},
 		{email: " customer.service@amazon.com", correct: false},
 		{email: "notifications@twitter.com", correct: true},
-		{email: "user!name@outlook.com", correct: false},
+		{email: "🕵🏼@outlook.com", correct: false},
 		{email: "newsletter@nytimes.com", correct: true},
 		{email: "john_doe@university.edu", correct: true},
 		{email: "info@company.io", correct: true},
 	}
 )
 
-// For now :D
-var verifier = NewVerifier()
-
 func TestCheckAddressSyntax(t *testing.T) {
+	var verifier = NewVerifier()
 	for _, is := range examples {
 		emailAddress := verifier.ParseEmail(is.email)
 		if !emailAddress.Valid && is.correct == true {

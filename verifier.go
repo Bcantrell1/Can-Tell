@@ -32,3 +32,19 @@ func NewVerifier() *Verifier {
 		operationTimeout: 10 * time.Second,
 	}
 }
+
+func (ver *Verifier) Validate(email string) (*Result, error) {
+
+	res := Result{
+		Email:      email,
+		Obtainable: obtainableUnknown,
+	}
+
+	structure := ver.ParseEmail(email)
+	res.Structure = structure
+	if !structure.Valid {
+		return &res, nil
+	}
+
+	return &res, nil
+}

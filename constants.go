@@ -6,4 +6,8 @@ const (
 	defaultName  = "localhost"
 
 	smtpPort = ":25"
+
+	obtainableYes     = "yes"
+	obtainableNo      = "no"
+	obtainableUnknown = "unknown"
 )
